@@ -17,12 +17,15 @@
   padding: 5px 10px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.2s, border-color 0.2s, margin-left 0.3s ease-in-out; /* Add margin-left transition */
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    margin-left 0.3s ease-in-out; /* Add margin-left transition */
   margin-left: 0; /* Initial margin */
 }
 
 .status-bar-button.open {
-  margin-left: var(--snippet-drawer-width); /* Slide open by adding margin */
+  margin-left: 250px; /* Slide open by adding margin */
 }
 
 .status-bar-button:hover {

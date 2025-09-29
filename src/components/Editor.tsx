@@ -19,9 +19,14 @@ const Editor = forwardRef(({ value, onChange, onMount }, ref) => {
     });
 
     // Add Three.js type definitions to the editor for autocompletion
-    fetch('https://unpkg.com/@types/three/index.d.ts').then(res => res.text()).then(types => {
-      monaco.languages.typescript.javascriptDefaults.addExtraLib(types, 'three.d.ts');
-    });
+    fetch('https://unpkg.com/@types/three/index.d.ts')
+      .then((res) => res.text())
+      .then((types) => {
+        monaco.languages.typescript.javascriptDefaults.addExtraLib(
+          types,
+          'three.d.ts'
+        );
+      });
 
     // Call parent onMount if provided
     if (onMount) {
@@ -34,13 +39,20 @@ const Editor = forwardRef(({ value, onChange, onMount }, ref) => {
     insertText(text) {
       if (editorRef.current) {
         const position = editorRef.current.getPosition();
-        editorRef.current.executeEdits('snippet-inserter', [{
-          range: new window.monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
-          text: text
-        }]);
+        editorRef.current.executeEdits('snippet-inserter', [
+          {
+            range: new window.monaco.Range(
+              position.lineNumber,
+              position.column,
+              position.lineNumber,
+              position.column
+            ),
+            text: text,
+          },
+        ]);
         editorRef.current.focus();
       }
-    }
+    },
   }));
 
   return (

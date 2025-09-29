@@ -27,7 +27,8 @@ const Preview = React.forwardRef(({ code, isDragging }, ref) => {
   };
 
   const htmlContent = generateHTML(code);
-  const dataUrl = 'data:text/html;charset=utf-8,' + encodeURIComponent(htmlContent);
+  const dataUrl =
+    'data:text/html;charset=utf-8,' + encodeURIComponent(htmlContent);
 
   return (
     <iframe

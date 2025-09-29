@@ -58,7 +58,7 @@ scene.add( axesHelper );`,
   'grid-helper': `// Shows a grid on the ground plane
 const gridHelper = new THREE.GridHelper( 10, 10 );
 scene.add( gridHelper );`,
-  'starfield': `// Creates a starfield as a THREE.Points object
+  starfield: `// Creates a starfield as a THREE.Points object
 // Usage: 
 //   const starfield = getStarfield();
 //   scene.add(starfield);
@@ -185,7 +185,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-init();`
+init();`,
 };
 
 export const defaultCode = `// Import necessary modules
@@ -279,9 +279,20 @@ function animate() {
 init();`;
 
 export const snippetCategories = {
-  'Geometries': ['box-geometry', 'sphere-geometry', 'plane-geometry', 'torus-geometry'],
-  'Materials': ['basic-material', 'lambert-material', 'standard-material', 'wireframe-material', 'matcap-material'],
-  'Lights': ['ambient-light', 'point-light', 'directional-light'],
-  'Helpers': ['axes-helper', 'grid-helper', 'starfield'],
-  'Examples': ['spinning-red-cube', 'empty-scene']
+  Geometries: [
+    'box-geometry',
+    'sphere-geometry',
+    'plane-geometry',
+    'torus-geometry',
+  ],
+  Materials: [
+    'basic-material',
+    'lambert-material',
+    'standard-material',
+    'wireframe-material',
+    'matcap-material',
+  ],
+  Lights: ['ambient-light', 'point-light', 'directional-light'],
+  Helpers: ['axes-helper', 'grid-helper', 'starfield'],
+  Examples: ['spinning-red-cube', 'empty-scene'],
 };

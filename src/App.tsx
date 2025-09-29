@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
-import Editor from './components/Editor';
-import Preview from './components/Preview';
-import SnippetDrawer from './components/SnippetDrawer';
-import Resizer from './components/Resizer';
-import StatusBar from './components/StatusBar'; // Import StatusBar
+import Editor from './components/Editor.tsx';
+import Preview from './components/Preview.tsx';
+import SnippetDrawer from './components/SnippetDrawer.tsx';
+import Resizer from './components/Resizer.tsx';
+import StatusBar from './components/StatusBar.tsx';
 import { defaultCode } from './data/snippets';
 
 function App() {
@@ -41,21 +41,35 @@ function App() {
     editorRef.current = editor;
 
     // Cmd/Ctrl+Shift+N to reset to default code
-    editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyN, () => {
-      if (window.confirm('Are you sure you want to reset the code to the default?')) {
-        setCode(defaultCode);
-        localStorage.removeItem('threejs-ide-code');
+    editor.addCommand(
+      monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyN,
+      () => {
+        if (
+          window.confirm(
+            'Are you sure you want to reset the code to the default?'
+          )
+        ) {
+          setCode(defaultCode);
+          localStorage.removeItem('threejs-ide-code');
+        }
       }
-    });
+    );
   };
 
   const handleSnippetInsert = (snippetCode) => {
     if (editorRef.current) {
       const position = editorRef.current.getPosition();
-      editorRef.current.executeEdits('snippet-inserter', [{
-        range: new window.monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
-        text: snippetCode
-      }]);
+      editorRef.current.executeEdits('snippet-inserter', [
+        {
+          range: new window.monaco.Range(
+            position.lineNumber,
+            position.column,
+            position.lineNumber,
+            position.column
+          ),
+          text: snippetCode,
+        },
+      ]);
       editorRef.current.focus();
     }
   };

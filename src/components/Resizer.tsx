@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Resizer = ({ onResize, onStow, editorWidth, onDragStart, onDragEnd }) => {
-
   const handleMouseDown = (mouseDownEvent) => {
     // Prevent text selection and other default browser actions while dragging
     mouseDownEvent.preventDefault();
@@ -18,7 +17,10 @@ const Resizer = ({ onResize, onStow, editorWidth, onDragStart, onDragEnd }) => {
       // Set boundaries to prevent the panes from becoming too small
       const minWidth = 100;
       const maxWidth = window.innerWidth - 100;
-      const clampedWidth = Math.max(minWidth, Math.min(maxWidth, newWidthInPixels));
+      const clampedWidth = Math.max(
+        minWidth,
+        Math.min(maxWidth, newWidthInPixels)
+      );
 
       const percentage = (clampedWidth / window.innerWidth) * 100;
       onResize(percentage);
