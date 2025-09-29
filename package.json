@@ -36,5 +36,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.15",
+    "@types/three": "^0.180.0",
+    "typescript": "^5.9.2"
   }
 }

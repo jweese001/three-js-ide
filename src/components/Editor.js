@@ -18,6 +18,11 @@ const Editor = forwardRef(({ value, onChange, onMount }, ref) => {
       minimap: { enabled: false },
     });
 
+    // Add Three.js type definitions to the editor for autocompletion
+    fetch('https://unpkg.com/@types/three/index.d.ts').then(res => res.text()).then(types => {
+      monaco.languages.typescript.javascriptDefaults.addExtraLib(types, 'three.d.ts');
+    });
+
     // Call parent onMount if provided
     if (onMount) {
       onMount(editor, monaco);

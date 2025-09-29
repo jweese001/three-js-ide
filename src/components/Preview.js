@@ -38,7 +38,7 @@ const Preview = React.forwardRef(({ code, isDragging }, ref) => {
         width: '100%',
         height: '100%',
         border: 'none',
-        backgroundColor: '#fff',
+        backgroundColor: '#282828',
         pointerEvents: isDragging ? 'none' : 'auto',
       }}
       title="Three.js Preview"
