@@ -13,8 +13,8 @@ const Preview = React.forwardRef(({ code, isDragging }, ref) => {
           <script type="importmap">
           {
               "imports": {
-                  "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
-                  "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+                  "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js",
+                  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/"
               }
           }
           </script>

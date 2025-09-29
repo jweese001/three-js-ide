@@ -58,6 +58,48 @@ scene.add( axesHelper );`,
   'grid-helper': `// Shows a grid on the ground plane
 const gridHelper = new THREE.GridHelper( 10, 10 );
 scene.add( gridHelper );`,
+  'starfield': `// Creates a starfield as a THREE.Points object
+// Usage: 
+//   const starfield = getStarfield();
+//   scene.add(starfield);
+function getStarfield({ numStars = 500, textureURL = '/images/whiteDot32.png' } = {}) {
+  function randomSpherePoint() {
+    const radius = Math.random() * 25 + 25;
+    const u = Math.random();
+    const v = Math.random();
+    const theta = 2 * Math.PI * u;
+    const phi = Math.acos(2 * v - 1);
+    let x = radius * Math.sin(phi) * Math.cos(theta);
+    let y = radius * Math.sin(phi) * Math.sin(theta);
+    let z = radius * Math.cos(phi);
+
+    return {
+      pos: new THREE.Vector3(x, y, z),
+      hue: 0.6,
+      minDist: radius,
+    };
+  }
+  const verts = [];
+  const colors = [];
+  for (let i = 0; i < numStars; i += 1) {
+    let p = randomSpherePoint();
+    const { pos, hue } = p;
+    const col = new THREE.Color().setHSL(hue, 0.2, Math.random());
+    verts.push(pos.x, pos.y, pos.z);
+    colors.push(col.r, col.g, col.b);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(verts, 3));
+  geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+  const mat = new THREE.PointsMaterial({
+    size: 0.2,
+    vertexColors: true,
+    map: new THREE.TextureLoader().load(textureURL),
+    transparent: true // Important for soft particles
+  });
+  const points = new THREE.Points(geo, mat);
+  return points;
+}`,
   'spinning-red-cube': `// A red cube that spins
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
@@ -240,6 +282,6 @@ export const snippetCategories = {
   'Geometries': ['box-geometry', 'sphere-geometry', 'plane-geometry', 'torus-geometry'],
   'Materials': ['basic-material', 'lambert-material', 'standard-material', 'wireframe-material', 'matcap-material'],
   'Lights': ['ambient-light', 'point-light', 'directional-light'],
-  'Helpers': ['axes-helper', 'grid-helper'],
+  'Helpers': ['axes-helper', 'grid-helper', 'starfield'],
   'Examples': ['spinning-red-cube', 'empty-scene']
 };
