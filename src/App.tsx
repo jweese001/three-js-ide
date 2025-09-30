@@ -40,9 +40,9 @@ function App() {
   const handleEditorMount = (editor, monaco) => {
     editorRef.current = editor;
 
-    // Cmd/Ctrl+Shift+N to reset to default code
+    // Cmd/Ctrl+Shift+R to reset to default code
     editor.addCommand(
-      monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyN,
+      monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyR,
       () => {
         if (
           window.confirm(

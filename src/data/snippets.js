@@ -102,13 +102,18 @@ function getStarfield({ numStars = 500, textureURL = '/images/whiteDot32.png' } 
 }`,
   'solar-system': `import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
 // Set up the scene, camera, and renderer
-let camera, scene, renderer;
+let camera, scene, renderer, composer;
 let controls;
 
 // Object to hold all celestial bodies for animation
 const solarSystem = {};
+let cameraFollowTarget = null;
+const cameraOrbitPivot = new THREE.Object3D();
 
 // --- STARFIELD FUNCTION --- 
 function getStarfield({ numStars = 5000, textureURL = 'http://localhost:3000/images/whiteDot32.png' } = {}) {
@@ -172,8 +177,9 @@ function createPlanet(name, radius, color, distanceFromSun, maxTrailPoints = 500
     // Create the trail line
     const trailPoints = [];
     const trailGeometry = new THREE.BufferGeometry().setFromPoints(trailPoints);
-    const trailMaterial = new THREE.LineBasicMaterial({ color: color });
+    const trailMaterial = new THREE.LineBasicMaterial({ color: color, depthTest: false });
     const trailLine = new THREE.Line(trailGeometry, trailMaterial);
+    trailLine.frustumCulled = false;
     scene.add(trailLine);
 
     solarSystem[name] = { mesh, orbit, trailPoints, trailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints, persistenceOrbits, cameraNull };
@@ -192,8 +198,9 @@ function createSaturnMoon(name, radius, color, distanceFromSaturn, maxTrailPoint
     // Create the trail line
     const trailPoints = [];
     const trailGeometry = new THREE.BufferGeometry().setFromPoints(trailPoints);
-    const trailMaterial = new THREE.LineBasicMaterial({ color: color });
+    const trailMaterial = new THREE.LineBasicMaterial({ color: color, depthTest: false });
     const trailLine = new THREE.Line(trailGeometry, trailMaterial);
+    trailLine.frustumCulled = false;
     scene.add(trailLine);
 
     solarSystem[name] = { mesh, orbit, trailPoints, trailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints, persistenceOrbits, cameraNull: null };
@@ -216,14 +223,28 @@ function init() {
     const near = 0.1;
     const far = 5000;
     camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.z = 100;
+    const distance = 100;
+    const angle = 33 * Math.PI / 180;
+    camera.position.set(0, distance * Math.sin(angle), distance * Math.cos(angle));
 
     // Create the scene
     scene = new THREE.Scene();
+    scene.add(cameraOrbitPivot);
 
     // Add Starfield
     const starfield = getStarfield();
     scene.add(starfield);
+
+    // Post-processing
+    composer = new EffectComposer(renderer);
+    const renderPass = new RenderPass(scene, camera);
+    composer.addPass(renderPass);
+
+    const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+    bloomPass.threshold = 0;
+    bloomPass.strength = 1.0; // intensity of glow
+    bloomPass.radius = 0.4;
+    composer.addPass(bloomPass);
 
     // Add OrbitControls
     controls = new OrbitControls(camera, renderer.domElement);
@@ -263,8 +284,8 @@ function init() {
     saturnOrbit.add(saturnMesh);
     saturnMesh.position.x = EARTH_DISTANCE * 4.5;
     scene.add(saturnOrbit);
-    const ringGeometry = new THREE.TorusGeometry(EARTH_RADIUS * 4.0 * 1.5, 1.5, 2, 100);
-    const ringMaterial = new THREE.MeshBasicMaterial({ color: 'palegoldenrod', wireframe: true });
+    const ringGeometry = new THREE.TorusGeometry(EARTH_RADIUS * 4.0 * 1.5, 0.7, 2, 100);
+    const ringMaterial = new THREE.MeshBasicMaterial({ color: '#FFFFFF', wireframe: true });
     const ringMesh = new THREE.Mesh(ringGeometry, ringMaterial);
     ringMesh.rotation.x = Math.PI / 2;
     saturnMesh.add(ringMesh);
@@ -275,16 +296,17 @@ function init() {
     const saturnTrailGeo = new THREE.BufferGeometry().setFromPoints(saturnTrailPoints);
     const saturnTrailMat = new THREE.LineBasicMaterial({ color: 'palegoldenrod' });
     const saturnTrailLine = new THREE.Line(saturnTrailGeo, saturnTrailMat);
+    saturnTrailLine.frustumCulled = false;
     scene.add(saturnTrailLine);
     solarSystem['saturn'] = { mesh: saturnMesh, orbit: saturnOrbit, trailPoints: saturnTrailPoints, trailLine: saturnTrailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints: 1800, persistenceOrbits: 1, cameraNull: saturnCameraNull };
 
     // Saturn's Moons
-    createSaturnMoon('saturn_moon_1', 0.1, '#add8e6', 2.2);
-    createSaturnMoon('saturn_moon_2', 0.1, '#87ceeb', 2.5);
-    createSaturnMoon('saturn_moon_3', 0.1, '#87cefa', 2.8);
-    createSaturnMoon('saturn_moon_4', 0.1, '#00bfff', 3.1);
-    createSaturnMoon('saturn_moon_5', 0.1, '#1e90ff', 3.4);
-    createSaturnMoon('saturn_moon_6', 0.1, '#6495ed', 3.7);
+    createSaturnMoon('saturn_moon_1', 0.03, '#add8e6', 2.3);
+    createSaturnMoon('saturn_moon_2', 0.03, '#87ceeb', 2.5);
+    createSaturnMoon('saturn_moon_3', 0.03, '#87cefa', 2.8);
+    createSaturnMoon('saturn_moon_4', 0.03, '#00bfff', 3.1);
+    createSaturnMoon('saturn_moon_5', 0.03, '#1e90ff', 3.4);
+    createSaturnMoon('saturn_moon_6', 0.03, '#6495ed', 3.7);
 
 
     // Moon for Earth
@@ -302,6 +324,7 @@ function init() {
     const moonTrailGeo = new THREE.BufferGeometry().setFromPoints(moonTrailPoints);
     const moonTrailMat = new THREE.LineBasicMaterial({ color: 'lightgrey' });
     const moonTrailLine = new THREE.Line(moonTrailGeo, moonTrailMat);
+    moonTrailLine.frustumCulled = false;
     scene.add(moonTrailLine);
     solarSystem['moon'] = { mesh: moonMesh, orbit: moonOrbit, trailPoints: moonTrailPoints, trailLine: moonTrailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints: 610, persistenceOrbits: 5, cameraNull: moonCameraNull };
 
@@ -315,7 +338,7 @@ function init() {
     const ioGeometry = new THREE.IcosahedronGeometry(JUPITER_RADIUS * 0.025, 3);
     const ioMaterial = new THREE.MeshBasicMaterial({ color: 'orange', wireframe: true });
     const ioMesh = new THREE.Mesh(ioGeometry, ioMaterial);
-    ioMesh.position.x = JUPITER_MOON_DISTANCE_SCALE * 0.2; // Closer to Jupiter
+    ioMesh.position.x = JUPITER_MOON_DISTANCE_SCALE * 0.3; // Closer to Jupiter
     ioOrbit.add(ioMesh);
     const ioCameraNull = new THREE.Object3D();
     ioMesh.add(ioCameraNull);
@@ -324,6 +347,7 @@ function init() {
     const ioTrailGeo = new THREE.BufferGeometry().setFromPoints(ioTrailPoints);
     const ioTrailMat = new THREE.LineBasicMaterial({ color: 'orange' });
     const ioTrailLine = new THREE.Line(ioTrailGeo, ioTrailMat);
+    ioTrailLine.frustumCulled = false;
     scene.add(ioTrailLine);
     solarSystem['io'] = { mesh: ioMesh, orbit: ioOrbit, trailPoints: ioTrailPoints, trailLine: ioTrailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints: 1800, persistenceOrbits: 1, cameraNull: ioCameraNull };
 
@@ -333,7 +357,7 @@ function init() {
     const europaGeometry = new THREE.IcosahedronGeometry(JUPITER_RADIUS * 0.022, 3);
     const europaMaterial = new THREE.MeshBasicMaterial({ color: 'lightgrey', wireframe: true });
     const europaMesh = new THREE.Mesh(europaGeometry, europaMaterial);
-    europaMesh.position.x = JUPITER_MOON_DISTANCE_SCALE * 0.3; // Further out
+    europaMesh.position.x = JUPITER_MOON_DISTANCE_SCALE * 0.35; // Further out
     europaOrbit.add(europaMesh);
     const europaCameraNull = new THREE.Object3D();
     europaMesh.add(europaCameraNull);
@@ -342,6 +366,7 @@ function init() {
     const europaTrailGeo = new THREE.BufferGeometry().setFromPoints(europaTrailPoints);
     const europaTrailMat = new THREE.LineBasicMaterial({ color: 'lightgrey' });
     const europaTrailLine = new THREE.Line(europaTrailGeo, europaTrailMat);
+    europaTrailLine.frustumCulled = false;
     scene.add(europaTrailLine);
     solarSystem['europa'] = { mesh: europaMesh, orbit: europaOrbit, trailPoints: europaTrailPoints, trailLine: europaTrailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints: 1700, persistenceOrbits: 2, cameraNull: europaCameraNull };
 
@@ -364,6 +389,7 @@ function init() {
     const phobosTrailGeo = new THREE.BufferGeometry().setFromPoints(phobosTrailPoints);
     const phobosTrailMat = new THREE.LineBasicMaterial({ color: 'darkgrey' });
     const phobosTrailLine = new THREE.Line(phobosTrailGeo, phobosTrailMat);
+    phobosTrailLine.frustumCulled = false;
     scene.add(phobosTrailLine);
     solarSystem['phobos'] = { mesh: phobosMesh, orbit: phobosOrbit, trailPoints: phobosTrailPoints, trailLine: phobosTrailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints: 740, persistenceOrbits: 1, cameraNull: phobosCameraNull };
 
@@ -382,6 +408,7 @@ function init() {
     const deimosTrailGeo = new THREE.BufferGeometry().setFromPoints(deimosTrailPoints);
     const deimosTrailMat = new THREE.LineBasicMaterial({ color: 'lightgrey' });
     const deimosTrailLine = new THREE.Line(deimosTrailGeo, deimosTrailMat);
+    deimosTrailLine.frustumCulled = false;
     scene.add(deimosTrailLine);
     solarSystem['deimos'] = { mesh: deimosMesh, orbit: deimosOrbit, trailPoints: deimosTrailPoints, trailLine: deimosTrailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints: 770, persistenceOrbits: 1, cameraNull: deimosCameraNull };
 
@@ -402,9 +429,21 @@ function init() {
 
     const celestialBodyNamesForUI = ['sun', 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto'];
 
+    const resetButton = document.createElement('div');
+    resetButton.textContent = 'Reset';
+    resetButton.style.padding = '4px';
+    resetButton.style.cursor = 'pointer';
+    resetButton.style.borderBottom = '1px solid #555';
+    resetButton.addEventListener('mouseenter', () => resetButton.style.backgroundColor = 'rgba(255,255,255,0.2)');
+    resetButton.addEventListener('mouseleave', () => resetButton.style.backgroundColor = 'transparent');
+    resetButton.addEventListener('click', () => {
+        window.location.reload();
+    });
+    uiContainer.appendChild(resetButton);
+
     celestialBodyNamesForUI.forEach(name => {
         const body = solarSystem[name];
-        if (body && body.cameraNull) {
+        if (body) {
             const button = document.createElement('div');
             button.textContent = name.charAt(0).toUpperCase() + name.slice(1);
             button.style.padding = '4px';
@@ -414,19 +453,20 @@ function init() {
             button.addEventListener('mouseleave', () => button.style.backgroundColor = 'transparent');
 
             button.addEventListener('click', () => {
-                if (isCameraAnimating) return; // Don't start a new animation if one is running
-
                 const targetBody = solarSystem[name];
-                if (targetBody && targetBody.cameraNull) {
-                    isCameraAnimating = true;
-                    controls.enabled = false;
-                    cameraAnimationStartTime = performance.now();
-
-                    cameraStartPos.copy(camera.position);
-                    targetBody.cameraNull.getWorldPosition(cameraEndPos);
-
-                    cameraStartLookAt.copy(controls.target);
-                    targetBody.mesh.getWorldPosition(cameraEndLookAt);
+                if (targetBody) {
+                    if (cameraFollowTarget === name) {
+                        // If clicking the same planet again, reset the camera
+                        cameraFollowTarget = null;
+                        controls.enabled = true;
+                    } else {
+                        cameraFollowTarget = name;
+                        controls.enabled = false; // Disable orbit controls when following
+                        if (targetBody.mesh) {
+                            targetBody.mesh.add(cameraOrbitPivot);
+                            cameraOrbitPivot.rotation.set(0, 0, 0);
+                        }
+                    }
                 }
             });
             uiContainer.appendChild(button);
@@ -455,6 +495,7 @@ function handleResize() {
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
+        composer.setSize(w, h);
     }
 }
 
@@ -504,19 +545,22 @@ function animate() {
 
 
     // Camera Animation
-    if (isCameraAnimating) {
-        const elapsedTime = performance.now() - cameraAnimationStartTime;
-        let t = Math.min(1, elapsedTime / cameraAnimationDuration);
-        const easedT = easeInOutCubic(t);
+    if (cameraFollowTarget) {
+        const targetBody = solarSystem[cameraFollowTarget];
+        if (targetBody && targetBody.mesh) {
+            cameraOrbitPivot.rotation.y += 0.005; // Slow orbit
 
-        camera.position.lerpVectors(cameraStartPos, cameraEndPos, easedT);
-        controls.target.lerpVectors(cameraStartLookAt, cameraEndLookAt, easedT);
-        controls.update(); // Update controls to reflect new target
+            const offset = new THREE.Vector3(0, targetBody.mesh.geometry.parameters.radius * 2, targetBody.mesh.geometry.parameters.radius * 0.2);
+            const worldPosition = cameraOrbitPivot.localToWorld(offset.clone());
+            camera.position.lerp(worldPosition, 0.06);
 
-        if (t === 1) {
-            isCameraAnimating = false;
-            controls.enabled = true;
+            const targetLookAt = new THREE.Vector3();
+            targetBody.mesh.getWorldPosition(targetLookAt);
+            controls.target.copy(targetLookAt);
+            camera.lookAt(targetLookAt);
         }
+    } else {
+        controls.update();
     }
 
     // Update the trails
@@ -553,7 +597,7 @@ function animate() {
         planet.trailLine.geometry.attributes.position.needsUpdate = true; // Important for updates
     }
 
-    renderer.render(scene, camera);
+    composer.render();
 }
 
 init();`,
