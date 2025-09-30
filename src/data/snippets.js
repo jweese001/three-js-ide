@@ -20,6 +20,16 @@ const geometry = new THREE.TorusGeometry( 1, 0.4, 16, 100 );
 const material = new THREE.MeshStandardMaterial( { color: 0xffa500 } );
 const mesh = new THREE.Mesh( geometry, material );
 scene.add( mesh );`,
+  'icosahedron-geometry': `// An icosahedron shape
+const geometry = new THREE.IcosahedronGeometry( 1, 0 );
+const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
+const mesh = new THREE.Mesh( geometry, material );
+scene.add( mesh );`,
+  'capsule-geometry': `// A capsule shape
+const geometry = new THREE.CapsuleGeometry( 1, 1, 4, 8 );
+const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
+const mesh = new THREE.Mesh( geometry, material );
+scene.add( mesh );`,
   'basic-material': `// A simple, unlit material
 const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );`,
   'lambert-material': `// A simple, lit material that is not shiny
@@ -785,6 +795,8 @@ export const snippetCategories = {
     'sphere-geometry',
     'plane-geometry',
     'torus-geometry',
+    'icosahedron-geometry',
+    'capsule-geometry',
   ],
   Materials: [
     'basic-material',
