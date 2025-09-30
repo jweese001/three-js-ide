@@ -110,10 +110,8 @@ let controls;
 // Object to hold all celestial bodies for animation
 const solarSystem = {};
 
-// ==================================================
 // --- STARFIELD FUNCTION --- 
-// ==================================================
-function getStarfield({ numStars = 20000, textureURL = 'http://localhost:3000/images/whiteDot32.png' } = {}) {
+function getStarfield({ numStars = 5000, textureURL = 'http://localhost:3000/images/whiteDot32.png' } = {}) {
   function randomSpherePoint() {
     const radius = Math.random() * 4000 + 1000; // Stars are further out
     const u = Math.random();
@@ -181,6 +179,26 @@ function createPlanet(name, radius, color, distanceFromSun, maxTrailPoints = 500
     solarSystem[name] = { mesh, orbit, trailPoints, trailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints, persistenceOrbits, cameraNull };
 }
 
+function createSaturnMoon(name, radius, color, distanceFromSaturn, maxTrailPoints = 3000, persistenceOrbits = 1) {
+    const geometry = new THREE.IcosahedronGeometry(radius, 1);
+    const material = new THREE.MeshBasicMaterial({ color, wireframe: true });
+    const mesh = new THREE.Mesh(geometry, material);
+
+    const orbit = new THREE.Object3D();
+    solarSystem.saturn.mesh.add(orbit);
+    orbit.add(mesh);
+    mesh.position.x = distanceFromSaturn;
+
+    // Create the trail line
+    const trailPoints = [];
+    const trailGeometry = new THREE.BufferGeometry().setFromPoints(trailPoints);
+    const trailMaterial = new THREE.LineBasicMaterial({ color: color });
+    const trailLine = new THREE.Line(trailGeometry, trailMaterial);
+    scene.add(trailLine);
+
+    solarSystem[name] = { mesh, orbit, trailPoints, trailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints, persistenceOrbits, cameraNull: null };
+}
+
 function init() {
     const w = window.innerWidth;
     const h = window.innerHeight;
@@ -232,9 +250,9 @@ function init() {
     createPlanet('earth', EARTH_RADIUS, 'blue', EARTH_DISTANCE, 800, 3);
     createPlanet('mars', EARTH_RADIUS * 0.53, 'red', EARTH_DISTANCE * 1.5, 1000, 3);
     createPlanet('jupiter', EARTH_RADIUS * 4.5, 'orange', EARTH_DISTANCE * 3.2, 1500, 1);
-    createPlanet('uranus', EARTH_RADIUS * 2.0, 'lightblue', EARTH_DISTANCE * 6.0, 3200, 2);
-    createPlanet('neptune', EARTH_RADIUS * 1.9, 'darkblue', EARTH_DISTANCE * 7.5, 1400, 2);
-    createPlanet('pluto', EARTH_RADIUS * 0.18, 'burlywood', EARTH_DISTANCE * 9.0, 1600, 3);
+    createPlanet('uranus', EARTH_RADIUS * 2.0, 'lightblue', EARTH_DISTANCE * 6.0,5200, 2);
+    createPlanet('neptune', EARTH_RADIUS * 1.9, 'darkblue', EARTH_DISTANCE * 7.5, 8000, 4);
+    createPlanet('pluto', EARTH_RADIUS * 0.18, 'burlywood', EARTH_DISTANCE * 9.0, 14200, 4);
 
 
     // Saturn (special case with rings)
@@ -259,6 +277,15 @@ function init() {
     const saturnTrailLine = new THREE.Line(saturnTrailGeo, saturnTrailMat);
     scene.add(saturnTrailLine);
     solarSystem['saturn'] = { mesh: saturnMesh, orbit: saturnOrbit, trailPoints: saturnTrailPoints, trailLine: saturnTrailLine, orbitsCompleted: 0, lastOrbitRotationY: 0, maxTrailPoints: 1800, persistenceOrbits: 1, cameraNull: saturnCameraNull };
+
+    // Saturn's Moons
+    createSaturnMoon('saturn_moon_1', 0.1, '#add8e6', 2.2);
+    createSaturnMoon('saturn_moon_2', 0.1, '#87ceeb', 2.5);
+    createSaturnMoon('saturn_moon_3', 0.1, '#87cefa', 2.8);
+    createSaturnMoon('saturn_moon_4', 0.1, '#00bfff', 3.1);
+    createSaturnMoon('saturn_moon_5', 0.1, '#1e90ff', 3.4);
+    createSaturnMoon('saturn_moon_6', 0.1, '#6495ed', 3.7);
+
 
     // Moon for Earth
     const moonOrbit = new THREE.Object3D();
@@ -431,7 +458,7 @@ function handleResize() {
     }
 }
 
-const planetNames = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto', 'moon', 'io', 'europa', 'phobos', 'deimos'];
+const planetNames = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto', 'moon', 'io', 'europa', 'phobos', 'deimos', 'saturn_moon_1', 'saturn_moon_2', 'saturn_moon_3', 'saturn_moon_4', 'saturn_moon_5', 'saturn_moon_6'];
 
 function animate() {
     requestAnimationFrame(animate);
@@ -468,6 +495,13 @@ function animate() {
     solarSystem.europa.orbit.rotation.y += 0.04; // Europa orbit speed
     solarSystem.phobos.orbit.rotation.y += 0.15; // Phobos orbit speed
     solarSystem.deimos.orbit.rotation.y += 0.07; // Deimos orbit speed
+    solarSystem.saturn_moon_1.orbit.rotation.y += 0.1;
+    solarSystem.saturn_moon_2.orbit.rotation.y += 0.12;
+    solarSystem.saturn_moon_3.orbit.rotation.y += 0.14;
+    solarSystem.saturn_moon_4.orbit.rotation.y += 0.16;
+    solarSystem.saturn_moon_5.orbit.rotation.y += 0.18;
+    solarSystem.saturn_moon_6.orbit.rotation.y += 0.2;
+
 
     // Camera Animation
     if (isCameraAnimating) {
@@ -522,8 +556,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-init();
-`,
+init();`,
   'spinning-red-cube': `// A red cube that spins
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
