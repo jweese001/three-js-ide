@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './App.css';
 import Editor from './components/Editor.tsx';
 import Preview from './components/Preview.tsx';
 import SnippetDrawer from './components/SnippetDrawer.tsx';
 import Resizer from './components/Resizer.tsx';
 import StatusBar from './components/StatusBar.tsx';
+import ErrorOverlay from './components/ErrorOverlay.tsx'; // Import ErrorOverlay
 import { defaultCode } from './data/snippets';
 
 function App() {
@@ -13,8 +14,10 @@ function App() {
   const [isEditorStowed, setIsEditorStowed] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isSnippetDrawerOpen, setIsSnippetDrawerOpen] = useState(false); // State for snippet drawer
+  const [error, setError] = useState(null); // Add error state
   const editorRef = useRef(null);
   const iframeRef = useRef(null);
+  const [isIframeReady, setIsIframeReady] = useState(false);
 
   // Load saved code on startup
   useEffect(() => {
@@ -33,12 +36,52 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, [code]);
 
+  const runCode = useCallback(() => {
+    if (iframeRef.current && isIframeReady) {
+      iframeRef.current.contentWindow.postMessage(
+        { type: 'executeCode', code },
+        window.location.origin
+      );
+    }
+  }, [code, isIframeReady]);
+
+  // Handle messages from the iframe
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.origin !== window.location.origin) return;
+
+      const { type, payload } = event.data;
+      if (type === 'error') {
+        setError(payload);
+      } else if (type === 'ready') {
+        setIsIframeReady(true);
+      } else if (type === 'reset') {
+        runCode();
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, [runCode]);
+
+  // Run code on initial load and on subsequent changes
+  useEffect(() => {
+    runCode();
+  }, [runCode]);
+
   const handleCodeChange = (newCode) => {
     setCode(newCode);
+    setError(null); // Clear error on code change
   };
 
   const handleEditorMount = (editor, monaco) => {
     editorRef.current = editor;
+
+    // Cmd/Ctrl+R to run code
+    editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyR, runCode);
 
     // Cmd/Ctrl+Shift+R to reset to default code
     editor.addCommand(
@@ -127,7 +170,8 @@ function App() {
         />
 
         <div id="preview-container">
-          <Preview ref={iframeRef} code={code} isDragging={isDragging} />
+          <Preview ref={iframeRef} isDragging={isDragging} />
+          <ErrorOverlay error={error} onClose={() => setError(null)} />
         </div>
       </div>
       <StatusBar
