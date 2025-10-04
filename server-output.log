@@ -2,398 +2,246 @@
 > threejs-ide@0.1.0 dev
 > vite
 
+2:32:21 PM [vite] (client) Re-optimizing dependencies because lockfile has changed
 Port 5173 is in use, trying another one...
 
-  VITE v7.1.7  ready in 123 ms
+  VITE v7.1.7  ready in 164 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: use --host to expose
-11:18:50 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+11:23:49 PM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+11:23:49 PM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
   Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/index.js:11:21
-  9  |    <React.StrictMode>
-  10 |      <App />
-  11 |    </React.StrictMode>
-     |                       ^
-  12 |  );
-  13 |  
-11:18:50 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/data/snippets.js:722:2
+  720 |    Helpers: ['axes-helper', 'grid-helper', 'starfield'],
+  721 |    Examples: ['spinning-red-cube', 'empty-scene', 'solar-system'],
+  722 |  };
+      |    ^
+11:23:49 PM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
   Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/index.js:11:21
-  9  |    <React.StrictMode>
-  10 |      <App />
-  11 |    </React.StrictMode>
-     |                       ^
-  12 |  );
-  13 |  
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/data/snippets.js:722:2
+  720 |    Helpers: ['axes-helper', 'grid-helper', 'starfield'],
+  721 |    Examples: ['spinning-red-cube', 'empty-scene', 'solar-system'],
+  722 |  };
+      |    ^
+      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
+      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+11:23:49 PM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/data/snippets.js:722:2
+  720 |    Helpers: ['axes-helper', 'grid-helper', 'starfield'],
+  721 |    Examples: ['spinning-red-cube', 'empty-scene', 'solar-system'],
+  722 |  };
+      |    ^
+11:26:11 PM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+9:28:37 AM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+9:42:22 AM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+3:16:03 PM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+3:16:03 PM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/data/snippets.js:603:7
+  601 |  }
+  602 |  
+  603 |  init();
+      |         ^
+3:16:03 PM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/data/snippets.js:603:7
+  601 |  }
+  602 |  
+  603 |  init();
+      |         ^
+3:16:03 PM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/data/snippets.js:603:7
+  601 |  }
+  602 |  
+  603 |  init();
+      |         ^
       at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
       at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
       at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
       at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
       at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
       at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:21:07 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+3:18:22 PM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
   Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/index.js:11:21
-  9  |    <React.StrictMode>
-  10 |      <App />
-  11 |    </React.StrictMode>
-     |                       ^
-  12 |  );
-  13 |  
-11:21:07 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/index.js:11:21
-  9  |    <React.StrictMode>
-  10 |      <App />
-  11 |    </React.StrictMode>
-     |                       ^
-  12 |  );
-  13 |  
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/data/snippets.js:603:7
+  601 |  }
+  602 |  
+  603 |  init();
+      |         ^
       at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
       at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
       at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
       at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
       at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
       at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:28:12 AM [vite] (client) page reload src/index.js
-11:28:12 AM [vite] (client) Pre-transform error: Failed to load url /src/index.js (resolved id: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/index.js). Does the file exist?
-11:28:48 AM [vite] (client) page reload index.html
-11:28:48 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-11:28:48 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-11:28:48 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-11:28:48 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:28:48 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:28:48 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:28:48 AM [vite] (client) ✨ new dependencies optimized: react-dom/client, web-vitals, @monaco-editor/react
-11:28:48 AM [vite] (client) ✨ optimized dependencies changed. reloading
-11:28:48 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-11:28:48 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-11:28:48 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-11:28:48 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-11:28:48 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-11:28:48 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-11:32:03 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:32:03 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:32:03 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:33:37 AM [vite] (client) hmr update /src/App.tsx
-11:33:37 AM [vite] (client) Pre-transform error: Failed to load url /src/components/Editor.js (resolved id: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Editor.js) in /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/App.tsx. Does the file exist?
-11:33:37 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-11:33:37 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-11:33:37 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-11:33:37 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:33:37 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:33:37 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:33:49 AM [vite] (client) hmr update /src/App.tsx
-11:33:49 AM [vite] (client) Pre-transform error: Failed to load url /src/components/Editor.js (resolved id: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Editor.js) in /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/App.tsx. Does the file exist?
-11:33:49 AM [vite] (client) Pre-transform error: Failed to load url /src/components/Preview.js (resolved id: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Preview.js) in /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/App.tsx. Does the file exist?
-11:33:49 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-11:33:49 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-11:33:49 AM [vite] (client) Pre-transform error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-11:33:49 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Resizer.js:51:15
-  49 |        >
-  50 |          ⇄
-  51 |        </button>
-     |                 ^
-  52 |      </div>
-  53 |    );
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:33:49 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/SnippetDrawer.js:26:54
-  24 |    return (
-  25 |      <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
-  26 |        <h3 className={styles.drawerTitle}>Snippets</h3>
-     |                                                        ^
-  27 |        <div className={styles.accordionContainer}>
-  28 |          {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:33:49 AM [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
-  Plugin: vite:import-analysis
-  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/StatusBar.js:11:15
-  9  |        >
-  10 |          ☰ Snippets
-  11 |        </button>
-     |                 ^
-  12 |        <div className="shortcut-reminder-text">
-  13 |          Cmd/Ctrl+Shift+N to reset
-      at TransformPluginContext._formatLog (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
-      at TransformPluginContext.error (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
-      at TransformPluginContext.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29628:10)
-      at async EnvironmentPluginContainer.transform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
-      at async loadAndTransform (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
-      at async viteTransformMiddleware (file:///Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
-11:35:16 AM [vite] (client) hmr update /src/App.tsx
+3:20:05 PM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+3:26:41 PM [vite] (client) hmr update /src/App.tsx
+6:05:35 PM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+6:36:15 PM [vite] (client) hmr update /src/components/Preview.tsx
+6:36:29 PM [vite] (client) hmr update /src/App.tsx
+6:40:12 PM [vite] (client) hmr update /src/components/Preview.tsx
+6:41:42 PM [vite] (client) hmr update /src/components/Preview.tsx
+6:44:25 PM [vite] (client) hmr update /src/components/Preview.tsx
+6:48:19 PM [vite] (client) hmr update /src/components/Preview.tsx
+6:48:19 PM [vite] Internal server error: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Preview.tsx: Missing semicolon. (36:1)
+
+  34 |
+  35 |             const userCode = `
+> 36 | ${userCode}
+     |  ^
+  37 | `;
+  38 |             const script = document.createElement('script');
+  39 |             script.type = 'module';
+  Plugin: vite:react-babel
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Preview.tsx:36:1
+  34 |  
+  35 |              const userCode = `
+  36 |  ${userCode}
+     |   ^
+  37 |  `;
+  38 |              const script = document.createElement('script');
+      at constructor (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:6630:19)
+      at TypeScriptParserMixin.semicolon (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:6926:10)
+      at TypeScriptParserMixin.parseExpressionStatement (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13294:10)
+      at TypeScriptParserMixin.parseExpressionStatement (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9616:26)
+      at TypeScriptParserMixin.parseStatementContent (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12908:19)
+      at TypeScriptParserMixin.parseStatementContent (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9532:18)
+      at TypeScriptParserMixin.parseStatementLike (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12776:17)
+      at TypeScriptParserMixin.parseStatementListItem (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12756:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13325:61)
+      at TypeScriptParserMixin.parseBlockBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13318:10)
+      at TypeScriptParserMixin.parseBlock (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13306:10)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12085:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11695:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11335:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:4797:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11085:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11070:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11050:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9857:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10903:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10908:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10885:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10835:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9806:20)
+      at /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10804:39
+      at TypeScriptParserMixin.allowInAnd (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12431:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10804:17)
+      at TypeScriptParserMixin.parseVar (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13393:91)
+      at TypeScriptParserMixin.parseVarStatement (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13239:10)
+      at TypeScriptParserMixin.parseVarStatement (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9498:31)
+      at TypeScriptParserMixin.parseStatementContent (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12860:23)
+      at TypeScriptParserMixin.parseStatementContent (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9532:18)
+      at TypeScriptParserMixin.parseStatementLike (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12776:17)
+      at TypeScriptParserMixin.parseStatementListItem (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12756:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13325:61)
+      at TypeScriptParserMixin.parseBlockBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13318:10)
+      at TypeScriptParserMixin.parseBlock (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13306:10)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12085:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11695:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11335:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:4797:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11085:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11070:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11050:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9857:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10903:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10908:23)
+6:49:02 PM [vite] (client) Pre-transform error: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Preview.tsx: Missing semicolon. (36:1)
+
+  34 |
+  35 |             const userCode = `
+> 36 | ${userCode}
+     |  ^
+  37 | `;
+  38 |             const script = document.createElement('script');
+  39 |             script.type = 'module';
+  Plugin: vite:react-babel
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Preview.tsx:36:1
+  34 |  
+  35 |              const userCode = `
+  36 |  ${userCode}
+     |   ^
+  37 |  `;
+  38 |              const script = document.createElement('script');
+6:49:02 PM [vite] Internal server error: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Preview.tsx: Missing semicolon. (36:1)
+
+  34 |
+  35 |             const userCode = `
+> 36 | ${userCode}
+     |  ^
+  37 | `;
+  38 |             const script = document.createElement('script');
+  39 |             script.type = 'module';
+  Plugin: vite:react-babel
+  File: /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/src/components/Preview.tsx:36:1
+  34 |  
+  35 |              const userCode = `
+  36 |  ${userCode}
+     |   ^
+  37 |  `;
+  38 |              const script = document.createElement('script');
+      at constructor (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:6630:19)
+      at TypeScriptParserMixin.semicolon (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:6926:10)
+      at TypeScriptParserMixin.parseExpressionStatement (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13294:10)
+      at TypeScriptParserMixin.parseExpressionStatement (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9616:26)
+      at TypeScriptParserMixin.parseStatementContent (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12908:19)
+      at TypeScriptParserMixin.parseStatementContent (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9532:18)
+      at TypeScriptParserMixin.parseStatementLike (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12776:17)
+      at TypeScriptParserMixin.parseStatementListItem (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12756:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13325:61)
+      at TypeScriptParserMixin.parseBlockBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13318:10)
+      at TypeScriptParserMixin.parseBlock (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13306:10)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12085:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11695:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11335:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:4797:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11085:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11070:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11050:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9857:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10903:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10908:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10885:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10835:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9806:20)
+      at /Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10804:39
+      at TypeScriptParserMixin.allowInAnd (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12431:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10804:17)
+      at TypeScriptParserMixin.parseVar (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13393:91)
+      at TypeScriptParserMixin.parseVarStatement (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13239:10)
+      at TypeScriptParserMixin.parseVarStatement (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9498:31)
+      at TypeScriptParserMixin.parseStatementContent (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12860:23)
+      at TypeScriptParserMixin.parseStatementContent (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9532:18)
+      at TypeScriptParserMixin.parseStatementLike (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12776:17)
+      at TypeScriptParserMixin.parseStatementListItem (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12756:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13325:61)
+      at TypeScriptParserMixin.parseBlockBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13318:10)
+      at TypeScriptParserMixin.parseBlock (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:13306:10)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:12085:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11695:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11335:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:4797:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11085:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11070:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:11050:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:9857:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10903:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/kraken/Documents/w33s3/3jsIDE/3jsIDE_0.03/threejs-ide/node_modules/@babel/parser/lib/index.js:10908:23)
+6:50:23 PM [vite] (client) hmr update /src/components/Preview.tsx
+8:51:20 PM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+8:55:46 PM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+8:57:48 PM [vite] (client) hmr update /src/App.tsx, /src/components/SnippetDrawer.tsx
+10:55:50 PM [vite] (client) page reload index.html

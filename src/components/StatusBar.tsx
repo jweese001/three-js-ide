@@ -10,7 +10,7 @@ const StatusBar = ({ onToggleSnippets, isSnippetDrawerOpen }) => {
         ☰ Snippets
       </button>
       <div className="shortcut-reminder-text">
-        Cmd/Ctrl+Shift+N to reset
+        Cmd/Ctrl+Shift+R to reset
       </div>
     </div>
   );

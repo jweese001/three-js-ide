@@ -4,9 +4,62 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
+class AnimatedSprite {
+    constructor(scene, config) {
+        if (!scene || !config) {
+            console.error("AnimatedSprite: 'scene' and 'config' parameters are required.");
+            return;
+        }
+        this.scene = scene;
+        this.texture = config.texture;
+        this.initialPosition = config.initialPosition || new THREE.Vector3(0, 0, 0);
+        this.velocity = config.velocity || new THREE.Vector3(0, 0, 0);
+        this.scale = config.scale || new THREE.Vector3(1, 1, 1);
+        this.startTime = config.startTime || 0;
+        this.duration = config.duration || 5;
+        this.isScreenSpace = config.isScreenSpace || false;
+        this.camera = config.camera || null;
+        this.totalTime = 0;
+        this.elapsedDuration = 0;
+        this.isActive = true;
+        const material = new THREE.SpriteMaterial({ map: this.texture, transparent: true, alphaTest: 0.1 });
+        this.sprite = new THREE.Sprite(material);
+        this.sprite.scale.copy(this.scale);
+        this.sprite.position.copy(this.initialPosition);
+        if (this.isScreenSpace && this.camera) {
+            this.camera.add(this.sprite);
+        } else {
+            this.scene.add(this.sprite);
+        }
+    }
+    update(deltaTime) {
+        if (!this.isActive) return;
+        this.totalTime += deltaTime;
+        if (this.totalTime < this.startTime) return;
+        this.elapsedDuration += deltaTime;
+        if (this.elapsedDuration > this.duration) {
+            this.destroy();
+            return;
+        }
+        const displacement = this.velocity.clone().multiplyScalar(deltaTime);
+        this.sprite.position.add(displacement);
+    }
+    destroy() {
+        if (!this.isActive) return;
+        if (this.sprite.parent) {
+            this.sprite.parent.remove(this.sprite);
+        }
+        this.sprite.material.dispose();
+        this.isActive = false;
+    }
+}
+
+
 // Set up the scene, camera, and renderer
 let camera, scene, renderer, composer;
 let controls;
+const animatedSprites = [];
+const clock = new THREE.Clock();
 
 // Object to hold all celestial bodies for animation
 const solarSystem = {};
@@ -149,6 +202,38 @@ function init() {
     controls.enableDamping = true;
     controls.dampingFactor = 0.03;
 
+    // --- SATELLITE CONFIG ---
+    const satelliteConfig = {
+        imagePath: '/images/satellite_256.png', // USE RELATIVE PATH
+        startTime: 0,
+        duration: 20,
+        initialPosition: new THREE.Vector3(-90, 15, -30),
+        velocity: new THREE.Vector3(20, 15, -200),
+        scale: new THREE.Vector3(10, 10, 10),
+    };
+
+    const textureLoader = new THREE.TextureLoader();
+    textureLoader.load(
+        satelliteConfig.imagePath, 
+        (texture) => {
+            const sprite = new AnimatedSprite(scene, {
+                texture: texture,
+                initialPosition: satelliteConfig.initialPosition,
+                velocity: satelliteConfig.velocity,
+                scale: satelliteConfig.scale,
+                startTime: satelliteConfig.startTime,
+                duration: satelliteConfig.duration,
+                isScreenSpace: false, // Set to false to move in world space
+                camera: camera
+            });
+            animatedSprites.push(sprite);
+        },
+        undefined,
+        (error) => {
+            console.error('An error occurred loading the satellite texture:', error);
+        }
+    );
+
     // --- Create Celestial Bodies ---
     const EARTH_RADIUS = 0.5;
     const EARTH_DISTANCE = 40;
@@ -228,7 +313,7 @@ function init() {
 
     // --- Jupiter Moons ---
     const JUPITER_RADIUS = EARTH_RADIUS * 4.5;
-    const JUPITER_MOON_DISTANCE_SCALE = JUPITER_RADIUS * 5; // Scale for moon distances relative to Jupiter's radius
+    const JUPITER_MOON_DISTANCE_SCALE = JUPITER_RADIUS * 5;
 
     // Io
     const ioOrbit = new THREE.Object3D();
@@ -236,7 +321,7 @@ function init() {
     const ioGeometry = new THREE.IcosahedronGeometry(JUPITER_RADIUS * 0.025, 3);
     const ioMaterial = new THREE.MeshBasicMaterial({ color: 'orange', wireframe: true });
     const ioMesh = new THREE.Mesh(ioGeometry, ioMaterial);
-    ioMesh.position.x = JUPITER_MOON_DISTANCE_SCALE * 0.3; // Closer to Jupiter
+    ioMesh.position.x = JUPITER_MOON_DISTANCE_SCALE * 0.3;
     ioOrbit.add(ioMesh);
     const ioCameraNull = new THREE.Object3D();
     ioMesh.add(ioCameraNull);
@@ -255,7 +340,7 @@ function init() {
     const europaGeometry = new THREE.IcosahedronGeometry(JUPITER_RADIUS * 0.022, 3);
     const europaMaterial = new THREE.MeshBasicMaterial({ color: 'lightgrey', wireframe: true });
     const europaMesh = new THREE.Mesh(europaGeometry, europaMaterial);
-    europaMesh.position.x = JUPITER_MOON_DISTANCE_SCALE * 0.35; // Further out
+    europaMesh.position.x = JUPITER_MOON_DISTANCE_SCALE * 0.35;
     europaOrbit.add(europaMesh);
     const europaCameraNull = new THREE.Object3D();
     europaMesh.add(europaCameraNull);
@@ -270,15 +355,15 @@ function init() {
 
     // --- Mars Moons ---
     const MARS_RADIUS = EARTH_RADIUS * 0.53;
-    const MARS_MOON_DISTANCE_SCALE = MARS_RADIUS * 10; // Scale for moon distances relative to Mars's radius
+    const MARS_MOON_DISTANCE_SCALE = MARS_RADIUS * 10;
 
     // Phobos
     const phobosOrbit = new THREE.Object3D();
     solarSystem.mars.mesh.add(phobosOrbit);
-    const phobosGeometry = new THREE.IcosahedronGeometry(MARS_RADIUS * 0.003 * 100, 1); // Scaled up for visibility
+    const phobosGeometry = new THREE.IcosahedronGeometry(MARS_RADIUS * 0.003 * 100, 1);
     const phobosMaterial = new THREE.MeshBasicMaterial({ color: 'darkgrey', wireframe: true });
     const phobosMesh = new THREE.Mesh(phobosGeometry, phobosMaterial);
-    phobosMesh.position.x = MARS_MOON_DISTANCE_SCALE * 0.2; // Closer to Mars
+    phobosMesh.position.x = MARS_MOON_DISTANCE_SCALE * 0.2;
     phobosOrbit.add(phobosMesh);
     const phobosCameraNull = new THREE.Object3D();
     phobosMesh.add(phobosCameraNull);
@@ -294,10 +379,10 @@ function init() {
     // Deimos
     const deimosOrbit = new THREE.Object3D();
     solarSystem.mars.mesh.add(deimosOrbit);
-    const deimosGeometry = new THREE.IcosahedronGeometry(MARS_RADIUS * 0.001 * 100, 1); // Scaled up for visibility
+    const deimosGeometry = new THREE.IcosahedronGeometry(MARS_RADIUS * 0.001 * 100, 1);
     const deimosMaterial = new THREE.MeshBasicMaterial({ color: 'lightgrey', wireframe: true });
     const deimosMesh = new THREE.Mesh(deimosGeometry, deimosMaterial);
-    deimosMesh.position.x = MARS_MOON_DISTANCE_SCALE * 0.4; // Further out
+    deimosMesh.position.x = MARS_MOON_DISTANCE_SCALE * 0.4;
     deimosOrbit.add(deimosMesh);
     const deimosCameraNull = new THREE.Object3D();
     deimosMesh.add(deimosCameraNull);
@@ -354,12 +439,11 @@ function init() {
                 const targetBody = solarSystem[name];
                 if (targetBody) {
                     if (cameraFollowTarget === name) {
-                        // If clicking the same planet again, reset the camera
                         cameraFollowTarget = null;
                         controls.enabled = true;
                     } else {
                         cameraFollowTarget = name;
-                        controls.enabled = false; // Disable orbit controls when following
+                        controls.enabled = false;
                         if (targetBody.mesh) {
                             targetBody.mesh.add(cameraOrbitPivot);
                             cameraOrbitPivot.rotation.set(0, 0, 0);
@@ -401,6 +485,14 @@ const planetNames = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', '
 
 function animate() {
     requestAnimationFrame(animate);
+
+    const deltaTime = clock.getDelta();
+    for (let i = animatedSprites.length - 1; i >= 0; i--) {
+        animatedSprites[i].update(deltaTime);
+        if (!animatedSprites[i].isActive) {
+            animatedSprites.splice(i, 1);
+        }
+    }
 
     // Rotations
     solarSystem.sun.mesh.rotation.y += 0.0005;
