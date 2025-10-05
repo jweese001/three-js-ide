@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
-import { snippets, snippetCategories } from '../data/snippets';
+import React, { useState, useEffect } from 'react';
 import styles from './SnippetDrawer.module.css';
 
 const SnippetDrawer = ({ onSnippetInsert, isOpen, onClose }) => {
-  // Use an object to track the open state of each category, allowing multiple to be open.
+  const [categories, setCategories] = useState([]);
   const [openSections, setOpenSections] = useState({});
+
+  useEffect(() => {
+    fetch('/snippets/manifest.json')
+      .then(response => response.json())
+      .then(data => setCategories(data.categories))
+      .catch(error => console.error('Error loading snippet manifest:', error));
+  }, []);
 
   const handleToggleSection = (category) => {
     setOpenSections((prev) => ({
@@ -13,42 +19,43 @@ const SnippetDrawer = ({ onSnippetInsert, isOpen, onClose }) => {
     }));
   };
 
-  const handleSnippetClick = (snippetKey) => {
-    const code = snippets[snippetKey];
-    if (code && onSnippetInsert) {
-      onSnippetInsert(code);
-    }
-    onClose(); // Close drawer after inserting
+  const handleSnippetClick = (snippetFile) => {
+    fetch(`/snippets/${snippetFile}`)
+      .then(response => response.text())
+      .then(code => {
+        if (code && onSnippetInsert) {
+          onSnippetInsert(code);
+        }
+        onClose(); // Close drawer after inserting
+      })
+      .catch(error => console.error(`Error loading snippet: ${snippetFile}`, error));
   };
 
   return (
     <div className={`${styles.snippetDrawer} ${isOpen ? styles.open : ''}`}>
       <h3 className={styles.drawerTitle}>Snippets</h3>
       <div className={styles.accordionContainer}>
-        {Object.entries(snippetCategories).map(([category, snippetKeys]) => (
-          <div key={category} className={styles.snippetSection}>
+        {categories.map((category) => (
+          <div key={category.name} className={styles.snippetSection}>
             <button
               className={styles.snippetSectionHeader}
-              onClick={() => handleToggleSection(category)}
+              onClick={() => handleToggleSection(category.name)}
             >
-              {category}
+              {category.name}
               <span className={styles.icon}>
-                {openSections[category] ? '▼' : '▶'}
+                {openSections[category.name] ? '▼' : '▶'}
               </span>
             </button>
             <div
-              className={`${styles.collapsibleContent} ${openSections[category] ? styles.open : ''}`}
+              className={`${styles.collapsibleContent} ${openSections[category.name] ? styles.open : ''}`}
             >
-              {snippetKeys.map((snippetKey) => (
+              {category.items.map((item) => (
                 <button
-                  key={snippetKey}
+                  key={item.name}
                   className={styles.snippetButton}
-                  onClick={() => handleSnippetClick(snippetKey)}
+                  onClick={() => handleSnippetClick(item.file)}
                 >
-                  {snippetKey
-                    .split('-')
-                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                    .join(' ')}
+                  {item.name}
                 </button>
               ))}
             </div>
