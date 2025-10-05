@@ -170,16 +170,6 @@ function init() {
     dirLight.position.set(3, 10, 10);
     scene.add(dirLight);
 
-    // A box shape
-    const geometry = new THREE.BoxGeometry( 3.5, 3.5, 3.5 );
-    const material = new THREE.MeshBasicMaterial({ 
-        color: 'purple', 
-        wireframe: true
-        });
-    mesh = new THREE.Mesh( geometry, material );
-    mesh.position.y = 1;
-    scene.add( mesh );
-
     // Load the .obj model
     const loader = new OBJLoader();
     loader.load(
@@ -251,19 +241,53 @@ function animate() {
 }
 
 init();`,
-  'spinning-red-cube': `// A red cube that spins
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+  'spinning-red-cube': `// A complete scene with a spinning red cube
+import * as THREE from 'three';
+
+let camera, scene, renderer, cube;
+
+function init() {
+    // Scene
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x222222);
+
+    // Camera
+    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    camera.position.z = 3;
+
+    // Renderer
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+    document.body.style.margin = '0';
+    document.body.style.overflow = 'hidden';
+
+    // The Cube
+    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+    cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    // Handle window resizing
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    animate();
+}
 
 function animate() {
     requestAnimationFrame( animate );
+
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
+
     renderer.render( scene, camera );
 }
-animate();`,
+
+init();`,
   'empty-scene': `// A blank scene with camera, lights, and controls.
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -356,7 +380,7 @@ function init() {
     const near = 0.1;
     const far = 100;
     camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.set( 3, 6, 3 );
+    camera.position.set( 4.5, 1, -0.5 );
 
     // Create the scene
     scene = new THREE.Scene();
